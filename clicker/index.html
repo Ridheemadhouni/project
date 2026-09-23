@@ -3,9 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clicker</title>
+    <title>Cosmic Clicker</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="game-container">
+        <div class="stats-panel">
+            <h1>Cosmic Energy</h1>
+            <div id="score" class="score-display">0</div>
+            <div id="eps-display" class="sub-display">Per Second: 0</div>
+        </div>
+
+        <div class="click-panel">
+            <button id="clickBtn" class="main-cookie-btn">✨</button>
+        </div>
+
+        <div class="shop-panel">
+            <h2>Upgrades</h2>
+            
+            <button id="buyClickPower" class="shop-item">
+                <div class="item-info">
+                    <span class="item-name">Laser Focus (+1/Click)</span>
+                    <span id="clickPowerCost" class="item-cost">Cost: 15 Energy</span>
+                </div>
+                <div id="clickPowerLevel" class="item-level">Lvl 1</div>
+            </button>
+
+            <button id="buyAutoClicker" class="shop-item">
+                <div class="item-info">
+                    <span class="item-name">Quantum Drone (+1/Sec)</span>
+                    <span id="autoClickerCost" class="item-cost">Cost: 100 Energy</span>
+                </div>
+                <div id="autoClickerLevel" class="item-level">Lvl 0</div>
+            </button>
+
+            <button id="buyStellarGenerator" class="shop-item">
+                <div class="item-info">
+                    <span class="item-name">Star Reactor (+8/Sec)</span>
+                    <span id="stellarCost" class="item-cost">Cost: 1100 Energy</span>
+                </div>
+                <div id="stellarLevel" class="item-level">Lvl 0</div>
+            </button>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

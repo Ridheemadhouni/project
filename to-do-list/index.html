@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Orbit - To-Do List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="todo-container">
+        <h1>Task Orbit</h1>
+        <p class="subtitle">Organize your daily routine</p>
+
+        <form id="todoForm" class="input-panel">
+            <input type="text" id="todoInput" placeholder="Add a new task..." maxlength="100" required>
+            <button type="submit">Add Task</button>
+        </form>
+
+        <ul id="todoList" class="todo-list"></ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

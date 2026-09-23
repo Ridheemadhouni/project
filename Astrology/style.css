@@ -1,0 +1,137 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #0f0c20 0%, #15102a 50%, #241442 100%);
+    color: #e0d5ff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    color: #cca43b;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+}
+
+p.subtitle {
+    color: #aaa2c0;
+    font-size: 0.95rem;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #cca43b;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+input[type="date"] {
+    width: 100%;
+    padding: 12px;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    color: #fff;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="date"]:focus {
+    border-color: #cca43b;
+    box-shadow: 0 0 8px rgba(204, 164, 59, 0.4);
+}
+
+button {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(45deg, #cca43b, #e5c060);
+    border: none;
+    border-radius: 8px;
+    color: #0f0c20;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(204, 164, 59, 0.4);
+}
+
+.result-card {
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: none;
+    animation: fadeIn 0.6s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.zodiac-sign {
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.zodiac-date {
+    font-style: italic;
+    color: #cca43b;
+    margin-bottom: 15px;
+    font-size: 0.9rem;
+}
+
+.section-title {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: #cca43b;
+    letter-spacing: 1px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+.description, .horoscope {
+    text-align: left;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}

@@ -3,9 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Count Down Timer</title>
+    <title>Quantum Countdown</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="timer-container">
+        <h1>Chronos Tracker</h1>
+        <p class="subtitle">Set your event target timestamp</p>
+
+        <div class="input-panel">
+            <input type="datetime-local" id="targetDateTime">
+            <button id="startBtn">Initiate Countdown</button>
+        </div>
+
+        <div id="countdownDisplay" class="countdown-grid">
+            <div class="time-block">
+                <span id="days" class="time-value">00</span>
+                <span class="time-label">Days</span>
+            </div>
+            <div class="time-block">
+                <span id="hours" class="time-value">00</span>
+                <span class="time-label">Hours</span>
+            </div>
+            <div class="time-block">
+                <span id="minutes" class="time-value">00</span>
+                <span class="time-label">Minutes</span>
+            </div>
+            <div class="time-block">
+                <span id="seconds" class="time-value">00</span>
+                <span class="time-label">Seconds</span>
+            </div>
+        </div>
+
+        <div id="completionMessage" class="completion-banner">
+            ✨ The cosmic convergence window has opened! ✨
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

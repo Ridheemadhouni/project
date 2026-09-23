@@ -3,9 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astrology</title>
+    <title>Astrology & Horoscope Finder</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="container">
+        <h1>Celestial Insights</h1>
+        <p class="subtitle">Discover your Zodiac profile and cosmic forecast</p>
+        <div class="form-group">
+            <label for="birthdate">Select Your Birthdate</label>
+            <input type="date" id="birthdate" required> 
+        </div>
+        <button onclick="revealDestiny()">Reveal Your Profile</button>
+        <div id="resultCard" class="result-card">
+            <div id="zodiacSign" class="zodiac-sign"></div>
+            <div id="zodiacDate" class="zodiac-date"></div>
+            <div class="section-title">Core Traits</div>
+            <div id="description" class="description"></div>
+            <div class="section-title">Daily Horoscope Prediction</div>
+            <div id="horoscope" class="horoscope"></div>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>

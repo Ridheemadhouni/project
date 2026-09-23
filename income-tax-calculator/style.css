@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #6D0808;
+   
+    color: #EEEAD7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.parents{
+    background-color: #EEEAD7;
+    color: #2D0000;
+   
+    padding: 50px;
+    border-radius: 50px;
+    margin: 120px;
+} 
+.parents button{
+    border-radius: 30px;
+    padding: 20px;
+    font-size: 20px;
+    margin-left: 150px;
+    background-color: #6D0808;
+   font-weight: bold;
+    color: #EEEAD7;
+}
+.parents input{
+    padding: 15px;
+    padding-left: 60px;
+    padding-right: 70px;
+    font-size: 20px;
+    border-radius: 20px;
+    margin-left: 50px;
+    background-color: #6D0808;
+   font-weight: bold;
+    color: #EEEAD7;
+}
+h1{
+    margin: 10px;
+    font-size: 50px;
+}
+h2{
+    margin: 10px;
+    font-size: 30px;
+}
