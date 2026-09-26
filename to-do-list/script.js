@@ -1,64 +1,46 @@
-let todos = JSON.parse(localStorage.getItem('todos')) || [];
+const form = document.querySelector('form');
+const allTask = document.querySelector('#allTask');
+const input = document.querySelector('input');
 
-const todoForm = document.getElementById('todoForm');
-const todoInput = document.getElementById('todoInput');
-const todoList = document.getElementById('todoList');
-
-function saveToLocalStorage() {
-    localStorage.setItem('todos', JSON.stringify(todos));
-}
-
-function renderTodos() {
-    todoList.innerHTML = '';
-    
-    todos.forEach((todo, index) => {
-        const li = document.createElement('li');
-        li.className = `todo-item ${todo.completed ? 'completed' : ''}`;
-
-        const textSpan = document.createElement('span');
-        textSpan.className = 'todo-text';
-        textSpan.innerText = todo.text;
-        textSpan.addEventListener('click', () => toggleTodo(index));
-
-        const deleteBtn = document.createElement('button');
-        deleteBtn.className = 'delete-btn';
-        deleteBtn.innerText = 'Delete';
-        deleteBtn.addEventListener('click', () => deleteTodo(index));
-
-        li.appendChild(textSpan);
-        li.appendChild(deleteBtn);
-        todoList.appendChild(li);
-    });
-}
-
-function addTodo(e) {
+form.addEventListener('submit',(e)=>{
     e.preventDefault();
-    const taskText = todoInput.value.trim();
     
-    if (taskText === '') return;
+    const text = input.value.trim();
+     
+    if(text=="")
+        return;
 
-    todos.push({
-        text: taskText,
-        completed: false
-    });
+    const parent = document.createElement('div');
+    parent.style.marginTop = "20px";
+    
+    const task = document.createElement('span');
+    task.textContent = text;
 
-    todoInput.value = '';
-    saveToLocalStorage();
-    renderTodos();
-}
+    task.style.marginRight = "20px";
 
-function toggleTodo(index) {
-    todos[index].completed = !todos[index].completed;
-    saveToLocalStorage();
-    renderTodos();
-}
+    const deleteButton = document.createElement('button');
+    deleteButton.textContent = "Delete";
+    deleteButton.style.width = "50px"
 
-function deleteTodo(index) {
-    todos.splice(index, 1);
-    saveToLocalStorage();
-    renderTodos();
-}
 
-todoForm.addEventListener('submit', addTodo);
+    const doneButton = document.createElement('button');
+    doneButton.textContent = "done";
+    doneButton.style.width = "50px";
+    doneButton.style.marginRight = "10px";
+   
+   parent.append(task,doneButton,deleteButton);
 
-renderTodos();
+   allTask.append(parent);
+
+   deleteButton.addEventListener('click',()=>{
+    parent.remove();
+   })
+
+   doneButton.addEventListener('click',()=>{
+    task.style.textDecoration = 'line-through';
+    task.style.color = 'grey';
+   })
+   
+   form.reset();
+
+})

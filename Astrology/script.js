@@ -1,48 +1,146 @@
-const zodiacData = [
-    { sign: "Capricorn ♑", startMonth: 12, startDay: 22, endMonth: 1, endDay: 19, dateStr: "Dec 22 - Jan 19", traits: "Disciplined, ambitious, practical, and deeply patient.", fortunes: ["Your hard work is quiet but notice is being taken. Expect a breakthrough.", "A structural shift today yields major long-term security."] },
-    { sign: "Aquarius ♒", startMonth: 1, startDay: 20, endMonth: 2, endDay: 18, dateStr: "Jan 20 - Feb 18", traits: "Innovative, independent, humanitarian, and highly original.", fortunes: ["An eccentric idea floating in your mind holds real merit. Write it down.", "Collaborating with like-minded individuals unlocks unexpected pathways today."] },
-    { sign: "Pisces ♓", startMonth: 2, startDay: 19, endMonth: 3, endDay: 20, dateStr: "Feb 19 - Mar 20", traits: "Compassionate, artistic, intuitive, and deeply empathetic.", fortunes: ["Trust your intuition over cold logic today; your gut knows the way.", "A creative wave hits you. Let go of strict structures and build dynamically."] },
-    { sign: "Aries ♈", startMonth: 3, startDay: 21, endMonth: 4, endDay: 19, dateStr: "Mar 21 - Apr 19", traits: "Eager, dynamic, quick-witted, and highly competitive.", fortunes: ["A burst of solar energy propels you forward. Take charge of that stagnant project.", "Do not mistake impatience for passion. Breathe before acting."] },
-    { sign: "Taurus ♉", startMonth: 4, startDay: 20, endMonth: 5, endDay: 20, dateStr: "Apr 20 - May 20", traits: "Strong, dependable, sensual, and boundlessly creative.", fortunes: ["Financial focus pays off today. Treat yourself to comfort tonight.", "Stability is your superpower; stand your ground against chaotic changes."] },
-    { sign: "Gemini ♊", startMonth: 5, startDay: 21, endMonth: 6, endDay: 20, dateStr: "May 21 - Jun 20", traits: "Versatile, expressive, curious, and incredibly kind.", fortunes: ["A conversation sparks a brand new cognitive direction. Be open to debates.", "Your adaptability will save the day when a surprise schedule change drops."] },
-    { sign: "Cancer ♋", startMonth: 6, startDay: 21, endMonth: 7, endDay: 22, dateStr: "Jun 21 - Jul 22", traits: "Intuitive, sentimental, compassionate, and fiercely protective.", fortunes: ["Home is where your energy replenishes today. Protect your emotional space.", "A deep, comforting connection with a loved one smooths over old friction."] },
-    { sign: "Leo ♌", startMonth: 7, startDay: 23, endMonth: 8, endDay: 22, dateStr: "Jul 23 - Aug 22", traits: "Dramatic, proud, self-assured, and wildly generous.", fortunes: ["The spotlight finds you naturally today. Lead with your inherent warmth.", "A creative risk yields satisfying results. Do not be afraid to be bold."] },
-    { sign: "Virgo ♍", startMonth: 8, startDay: 23, endMonth: 9, endDay: 22, dateStr: "Aug 23 - Sep 22", traits: "Loyal, analytical, kind, and exceptionally hardworking.", fortunes: ["Your meticulous planning prevents a massive error today. Trust your systems.", "Perfectionism is a trap. Accept 'good enough' to maintain mental sanity."] },
-    { sign: "Libra ♎", startMonth: 9, startDay: 23, endMonth: 10, endDay: 22, dateStr: "Sep 23 - Oct 22", traits: "Diplomatic, artistic, harmonious, and fair-minded.", fortunes: ["Balance returns to a rocky relationship if you act as the mediator.", "Surround yourself with art or music today to realign your inner scale."] },
-    { sign: "Scorpio ♏", startMonth: 10, startDay: 23, endMonth: 11, endDay: 21, dateStr: "Oct 23 - Nov 21", traits: "Passionate, stubborn, resourceful, and intensely brave.", fortunes: ["A mystery unravels. Look past the surface layer of a complex problem.", "Your internal magnetism is high today. Use it to negotiate better terms."] },
-    { sign: "Sagittarius ♐", startMonth: 11, startDay: 22, endMonth: 12, endDay: 21, dateStr: "Nov 22 - Dec 21", traits: "Generous, idealistic, humorous, and fundamentally free-spirited.", fortunes: ["An itch for adventure might lead to a spontaneous, beautiful trip or purchase.", "Optimism acts as your shield today. Keep looking toward the positive horizon."] }
+const zodiacSigns = [
+    "Capricorn", "Aquarius", "Pisces", "Aries", "Taurus", "Gemini",
+    "Cancer", "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius"
 ];
 
-function revealDestiny() {
-    const dateInput = document.getElementById('birthdate').value;
-    
-    if (!dateInput) {
-        alert("Please enter your birth date first!");
-        return;
-    }
 
-    const birthDate = new Date(dateInput);
-    const month = birthDate.getMonth() + 1;
-    const day = birthDate.getDate();
-    let matchedZodiac = null;
+// Based on Date, size 31
+const compliments = [
+    "You have a great sense of humor.",
+    "Your smile lights up the room.",
+    "You bring out the best in people.",
+    "You're an incredibly thoughtful person.",
+    "You have a heart of gold.",
+    "Your creativity is inspiring.",
+    "You're a fantastic problem-solver.",
+    "Your kindness is contagious.",
+    "You have an amazing ability to connect with others.",
+    "You're so knowledgeable about so many things.",
+    "Your determination is admirable.",
+    "You're a great listener.",
+    "You make the world a better place.",
+    "Your positivity is infectious.",
+    "You have an eye for detail.",
+    "You're always so helpful and considerate.",
+    "You have a natural talent for leadership.",
+    "Your courage is inspiring.",
+    "You're an amazing friend.",
+    "You have a unique perspective that is refreshing.",
+    "Your energy brightens everyone’s day.",
+    "You're incredibly resourceful.",
+    "You have a wonderful way with words.",
+    "You're a ray of sunshine on a cloudy day.",
+    "Your hard work is paying off.",
+    "You're so reliable and trustworthy.",
+    "You have a fantastic sense of style.",
+    "Your confidence is inspiring.",
+    "You're a great mentor and teacher.",
+    "Your dedication is remarkable.",
+    "You make everyone feel valued and respected."
+];
 
-    for (let z of zodiacData) {
-        if ((month === z.startMonth && day >= z.startDay) || (month === z.endMonth && day <= z.endDay)) {
-            matchedZodiac = z;
-            break;
-        }
-    }
 
-    if (!matchedZodiac) {
-        matchedZodiac = zodiacData.find(z => z.sign.includes("Capricorn"));
-    }
+// size 20
+const victimCardCompliments = [
+    "You always do good for others, but they don't appreciate it.",
+    "You give so much, but rarely get anything in return.",
+    "Your kindness often goes unnoticed, but it’s truly remarkable.",
+    "You always put others first, even when they don’t deserve it.",
+    "You sacrifice so much, yet people rarely acknowledge it.",
+    "You have a heart of gold, but others take it for granted.",
+    "You’re always there for everyone, but they’re not always there for you.",
+    "You work so hard, yet your efforts often go unrecognized.",
+    "You care deeply, even when others don’t reciprocate.",
+    "You forgive so easily, even when people don’t deserve it.",
+    "You give people the benefit of the doubt, but they rarely do the same for you.",
+    "You stand by people in their tough times, but they forget you in yours.",
+    "You always try to make peace, even when others blame you.",
+    "You handle so much pressure, yet no one sees your struggles.",
+    "You give so much love, but people don’t value it enough.",
+    "You’re always honest, yet people misunderstand your intentions.",
+    "You go out of your way for others, but they don’t return the favor.",
+    "You share everything you have, but people still ask for more.",
+    "You’re a true friend, even when others don’t treat you the same.",
+    "You keep helping others, even when they don’t say thank you."
+];
 
-    const randomIndex = Math.floor(Math.random() * matchedZodiac.fortunes.length);
-    const dailyFortune = matchedZodiac.fortunes[randomIndex];
 
-    document.getElementById('zodiacSign').innerText = matchedZodiac.sign;
-    document.getElementById('zodiacDate').innerText = matchedZodiac.dateStr;
-    document.getElementById('description').innerText = matchedZodiac.traits;
-    document.getElementById('horoscope').innerText = dailyFortune;
-    document.getElementById('resultCard').style.display = 'block';
-}
+
+// size is 30
+const recommendations = [
+    "Feed a street dog and spread kindness.",
+    "Plant a tree and nurture it.",
+    "Volunteer at a local shelter or community center.",
+    "Start your day with meditation for a peaceful mind.",
+    "Write down three things you’re grateful for daily.",
+    "Spend time with your family and cherish those moments.",
+    "Help someone in need, even in small ways.",
+    "Read a book that inspires you to grow.",
+    "Exercise regularly to keep your body healthy.",
+    "Donate clothes you don’t wear to charity.",
+    "Cook a meal for someone and share the joy of food.",
+    "Smile at strangers and brighten their day.",
+    "Learn a new skill or hobby that excites you.",
+    "Reduce your plastic use to help the environment.",
+    "Disconnect from social media for a day and enjoy the moment.",
+    "Start a journal to document your thoughts and dreams.",
+    "Spend time in nature and appreciate its beauty.",
+    "Compliment someone genuinely and make their day.",
+    "Clean your room or workspace to feel more organized.",
+    "Drink more water and prioritize your health.",
+    "Write a letter to your future self.",
+    "Support a local business or artisan.",
+    "Listen to someone without interrupting.",
+    "Practice random acts of kindness every day.",
+    "Save a small amount of money weekly for future goals.",
+    "Make a vision board to stay motivated.",
+    "Adopt an eco-friendly habit like cycling or walking more.",
+    "Spend time with children and learn from their innocence.",
+    "Call an old friend and reconnect.",
+    "Learn to say no to things that don’t serve your happiness."
+];
+
+// size is 20
+const predictions = [
+    "You will become a crorepati!",
+    "Success is just around the corner for you.",
+    "Your dream job is closer than you think.",
+    "Expect the unexpected—great things are coming.",
+    "You will travel the world in the next few years.",
+    "A big opportunity will knock on your door soon.",
+    "Your hard work will pay off in ways you can't imagine.",
+    "You will make a difference in someone's life.",
+    "A surprising adventure is coming your way.",
+    "Great things come to those who wait—your time is coming.",
+    "Your creativity will lead to great success.",
+    "A life-changing moment is just ahead.",
+    "Get ready for some exciting news soon.",
+    "A financial breakthrough is in your future.",
+    "You will find happiness in the smallest things.",
+    "Your patience will lead to big rewards.",
+    "A new friendship will change your life.",
+    "Prepare for a future full of opportunities.",
+    "A career breakthrough is on the horizon.",
+    "You will leave a legacy of inspiration."
+];
+
+
+const form = document.getElementById('astroForm');
+
+form.addEventListener('submit',(e)=>{
+    e.preventDefault();
+
+    const name = document.getElementById('name').value;
+    const surname = document.getElementById('surname').value;
+    const day = parseInt(document.getElementById('day').value);
+    const month = parseInt(document.getElementById('month').value);
+    const year = parseInt(document.getElementById('year').value);
+
+
+
+    const text = `Hi ${name} ${surname}, Your Zodiac sign is ${zodiacSigns[month-1]}
+    . ${compliments[day-1]}. ${victimCardCompliments[year%20]}. ${recommendations[(day*month)%30]}.
+    ${predictions[(name.length*surname.length)%20]}`;
+
+    document.getElementById('result').textContent = text;
+})

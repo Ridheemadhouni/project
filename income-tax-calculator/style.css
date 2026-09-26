@@ -1,49 +1,139 @@
-*{
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
-body{
-    background-color: #6D0808;
-   
-    color: #EEEAD7;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 
+body {
+    background-color: #6D0808;
+    color: #EEEAD7;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
-.parents{
+
+.parents {
     background-color: #EEEAD7;
     color: #2D0000;
-   
+    width: 100%;
+    max-width: 650px;
     padding: 50px;
-    border-radius: 50px;
-    margin: 120px;
-} 
-.parents button{
-    border-radius: 30px;
-    padding: 20px;
-    font-size: 20px;
-    margin-left: 150px;
-    background-color: #6D0808;
-   font-weight: bold;
-    color: #EEEAD7;
+    border-radius: 40px;
+    text-align: center;
 }
-.parents input{
-    padding: 15px;
-    padding-left: 60px;
-    padding-right: 70px;
-    font-size: 20px;
-    border-radius: 20px;
-    margin-left: 50px;
-    background-color: #6D0808;
-   font-weight: bold;
-    color: #EEEAD7;
-}
-h1{
-    margin: 10px;
+
+.parents h1 {
+    margin: 10px 0;
     font-size: 50px;
 }
-h2{
-    margin: 10px;
+
+.parents h2 {
+    margin: 10px 0 25px;
     font-size: 30px;
+}
+
+.parents input {
+    width: 100%;
+    max-width: 450px;
+    height: 55px;
+    padding: 12px 20px;
+    font-size: 20px;
+    border-radius: 20px;
+    border: 2px solid #6D0808;
+    background-color: #6D0808;
+    color: #EEEAD7;
+    outline: none;
+}
+
+.parents input::placeholder {
+    color: #EEEAD7;
+}
+
+.parents button {
+    display: block;
+    width: 220px;
+    margin: 25px auto 0;
+    padding: 15px 20px;
+    font-size: 20px;
+    border: none;
+    border-radius: 30px;
+    background-color: #6D0808;
+    color: #EEEAD7;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.parents button:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 15px;
+    }
+
+    .parents {
+        width: 100%;
+        max-width: 400px;
+        padding: 30px 20px;
+        border-radius: 30px;
+    }
+
+    .parents h1 {
+        font-size: 38px;
+        margin: 5px 0;
+    }
+
+    .parents h2 {
+        font-size: 23px;
+        margin: 8px 0 20px;
+    }
+
+    .parents input {
+        width: 100%;
+        height: 50px;
+        font-size: 17px;
+        padding: 10px 15px;
+    }
+
+    .parents button {
+        width: 100%;
+        max-width: 280px;
+        margin-top: 18px;
+        padding: 13px 15px;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 400px) {
+    body {
+        padding: 10px;
+    }
+
+    .parents {
+        max-width: 350px;
+        padding: 25px 15px;
+        border-radius: 25px;
+    }
+
+    .parents h1 {
+        font-size: 32px;
+    }
+
+    .parents h2 {
+        font-size: 20px;
+    }
+
+    .parents input {
+        height: 46px;
+        font-size: 16px;
+    }
+
+    .parents button {
+        max-width: 100%;
+        font-size: 17px;
+    }
 }

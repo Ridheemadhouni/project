@@ -4,6 +4,8 @@
 body{
     background-color: #fff;
     color: rgb(124, 187, 243);
+    height: 100vh;
+    
 }
 header h1{
     display: flex;
@@ -407,3 +409,18 @@ background-color: #e0ebeb;
     transition: 1s;
     transform: scale(1.1);
 }
+@media (max-width: 600px) {
+    body{
+        width: 100%;
+        overflow-x: hidden;
+    }
+    header h1 { font-size: 40px; padding: 30px 20px; text-align: center;
+    }
+    .first, .second, .third, .fourth { grid-template-columns: 1fr; margin-top: 30px; } .fourth { margin-bottom: 50px; }
+    #box1, #box2, #box3, #box4, #box5, #box6, #box7, #box8, #box9, #box10 { margin: 10px 20px; padding: 20px; padding-bottom: 30px; }
+    #box1 h1, #box2 h1, #box3 h1, #box4 h1, #box5 h1, #box6 h1, #box7 h1, #box8 h1, #box9 h1, #box10 h1 { font-size: 28px; text-align: center; }
+    #box1 p, #box2 p, #box3 p, #box4 p, #box5 p, #box6 p, #box7 p, #box8 p, #box9 p, #box10 p { font-size: 17px; padding: 10px; line-height: 1.5; }
+    #box1 button, #box2 button, #box3 button, #box4 button, #box5 button, #box6 button, #box7 button, #box8 button, #box9 button, #box10 button { display: block; width: 100%; padding: 12px; font-size: 22px; border-radius: 30px; }
+    footer h1 { font-size: 40px; padding: 20px 10px; text-align: center; } 
+}
+@media (max-width: 400px) { header h1, footer h1 { font-size: 32px; } #box1, #box2, #box3, #box4, #box5, #box6, #box7, #box8, #box9, #box10 { margin: 10px 12px; padding: 15px; } #box1 h1, #box2 h1, #box3 h1, #box4 h1, #box5 h1, #box6 h1, #box7 h1, #box8 h1, #box9 h1, #box10 h1 { font-size: 24px; } #box1 p, #box2 p, #box3 p, #box4 p, #box5 p, #box6 p, #box7 p, #box8 p, #box9 p, #box10 p { font-size: 15px; } #box1 button, #box2 button, #box3 button, #box4 button, #box5 button, #box6 button, #box7 button, #box8 button, #box9 button, #box10 button { font-size: 18px; } }
